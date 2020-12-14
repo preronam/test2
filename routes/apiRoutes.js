@@ -8,12 +8,18 @@ const router = express.Router();
 router.post("/api/users/post", async (req, res) => {
   const postusersProduct = new User({
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
+    product:[{
+      title: req.body.title,
+      category: req.body.category,
+      description: req.body.description,
+      image: req.body.image
+    }]
   });
   console.log(postusersProduct);
   try {
-    users.insertOne(productData);
-    res.send(productData);
+    users.insertOne(postusersProduct);
+    res.send(postusersProduct);
   } catch (err) {
     res.json({ message: err });
   }
