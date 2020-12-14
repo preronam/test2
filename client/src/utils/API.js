@@ -9,11 +9,13 @@ export default {
       proxyUrl + barcodeInput + "&formatted=y&key=hrsh89sx6t7478jna9yf81jqmxbhke"
     );
   },
-  postusersProduct: postusersProduct=> {
-    return axios.post('/api/users/post', postusersProduct)
-    // .then(result => result.data);
+  postusersProduct: usersProduct=> {
+    return axios.post("/Products", usersProduct)
+    .then(result => result.data);
   }
-}
+};
+
+
 //   retrieveProduct: () => {
 //     return axios.post('/api/products/all')
 //     // .then(result => result.data);

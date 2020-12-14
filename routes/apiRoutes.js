@@ -4,26 +4,23 @@ const router = express.Router();
 
 //Products model are going be used to for any activity we will perform
 
-//submit product is (/api/products/post)
-router.post("/api/users/post", async (req, res) => {
-  const postusersProduct = new User({
-    username: req.body.username,
-    password: req.body.password,
-    product:[{
-      title: req.body.title,
-      category: req.body.category,
-      description: req.body.description,
-      image: req.body.image
-    }]
+//route product is (/api/products/post)
+router.post("/Products", async (req, res) => {
+  const usersProduct = new products({
+
+    title: req.body[products.title],
+    category: req.body[products.category],
+    description: req.body[products.description],
+    image: req.body[products.image]
   });
-  console.log(postusersProduct);
-  try {
-    users.insertOne(postusersProduct);
-    res.send(postusersProduct);
-  } catch (err) {
-    res.json({ message: err });
-  }
+  usersProduct.user = req.user._id; 
+try {
+  res.send(usersProduct);
+} catch (err) {
+  res.json({ message: err });
+}
 });
+
 
 // //get all products is (/api/products/all)
 // router.get("/api/user/all", async (req, res) => {

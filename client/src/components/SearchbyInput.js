@@ -34,7 +34,7 @@ function SearchbyInput() {
   function recommendProduct() {
     const drySkinCriteria = ["hydrating", "hydration", "dry skin", "moisture", "moisturization", "intense moisture", "moisturizing"];
     const oilSkinCriteria = ["oily skin", "control oiliness", "oiliness", "acne", "oily", "oily t-zone"];
-    const allSkinCriteria = ["all skin types", "all skin", "combination", "normal", "Anti-Blemish"];
+    const allSkinCriteria = ["all skin types", "all skin", "combination", "normal", "Anti-Blemish", "anti-blemish"];
 
     // console.log(products[0].description.split(" "), "hello");
 
