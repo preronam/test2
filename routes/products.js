@@ -1,29 +1,54 @@
-const express = require("express");
-const User = require("../database/models/user");
-const router = express.Router();
+const router = require('express').Router();
+let Product = require('../database/models/product.model')
 
-//Products model are going be used to for any activity we will perform
+router.route('/product').post((req,res) => {
+ const username = req.body.username;
+ const title = req.body.title;
+ const description = req.body.description;
+ const category = req.body.category;
+ const image = req.body.image;
 
-//route product is (/api/products/post)
-router.post("/Products", async (req, res) => {
-  const usersProduct = new products({
+ const newProduct = new Product({
+  username,
+  title,
+  description,
+  category,
+  image,
 
-    title: req.body[products.title],
-    category: req.body[products.category],
-    description: req.body[products.description],
-    image: req.body[products.image]
-  });
-  usersProduct.user = req.user._id; 
-try {
-  res.send(usersProduct);
-} catch (err) {
-  res.json({ message: err });
-}
+ });
+
+
+newProduct.save()
+.then(() => res.json('Product aaded!'))
+.catch(err => res.status(400).json('Error:' + err));
 });
 
 
-// //get all products is (/api/products/all)
-// router.get("/api/user/all", async (req, res) => {
+
+
+// //route product is (/api/products/post)
+// router.post("/api/products", async (req, res) => {
+//   const usersProduct = new Products({
+
+//     title: req.body[products.title],
+//     category: req.body[products.category],
+//     description: req.body[products.description],
+//     image: req.body[products.image]
+//   });
+//   usersProduct.user = req.user.username;
+//   try {
+//     const savedPost = await usersProduct.save();
+//     res.send(savedPost);
+//   } catch (err) {
+//     res.json({ message: err });
+//   }
+// });
+
+
+
+
+// // //get all products is (/api/products/all)
+// // router.get("/api/user/all", async (req, res) => {
 //   try {
 //     const getProduct = await Products.find({});
 //     console.log("------------------whats up");

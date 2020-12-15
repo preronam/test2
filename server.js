@@ -10,7 +10,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const user = require("./routes/user");
-const products = require("./routes/apiRoutes");
+const products = require("./routes/products");
 const PORT = process.env.PORT || 8080;
 
 // MIDDLEWARE
