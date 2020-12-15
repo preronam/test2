@@ -10,7 +10,7 @@ export default {
     );
   },
   postusersProduct: newProduct=> {
-    return axios.post('/product', newProduct)
+    return axios.post('/api/product', newProduct)
     .then(result => result.data);
   }
 };
